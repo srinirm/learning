@@ -1,3 +1,7 @@
+// C++ program to demonstrate functionality of unordered_map 
+#include <iostream> 
+#include <unordered_map> 
+using namespace std;
 int main() 
 { 
     // Declaring umap to be of <string, double> type 
