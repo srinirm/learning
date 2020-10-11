@@ -156,6 +156,39 @@ void  Delete_iter (TrieNode * root, const char* str) {
 }
 
 
+//Find shortest unique prefix for every word in a given list
+
+void findPrefixesUtil( TrieNode *root, char prefix[], 
+                      int ind) 
+{ 
+    // Corner case 
+    if (root == NULL) 
+       return; 
+  
+    // Base case 
+    if (root->count == 1) 
+    { 
+       prefix[ind] = '\0'; 
+       printf("%s ", prefix);
+            return; 
+    } 
+    
+    if (root->is_end) {
+        prefix[ind] = '\0';
+       printf("%s ", prefix);
+       if (isEmpty(root)) return;
+    } 
+ 
+    for (int i=0; i<SIZE; i++) 
+    { 
+       if (root->child[i] != NULL) 
+       { 
+           prefix[ind] = (int)'a' + i; 
+           findPrefixesUtil(root->child[i], prefix, ind+1); 
+       } 
+    } 
+} 
+
 
 
 int main () {
