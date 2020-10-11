@@ -9,7 +9,8 @@ space: O(ALPHABET_SIZE * key_length * N) where N is number of keys in Trie.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <stack>
+    
 #define SIZE 26
 #define INDEX(x) ((int)x - (int)'a')
 
@@ -117,6 +118,43 @@ TrieNode* deleteNode (TrieNode *root, const char *str, int depth = 0) {
     }
     return root;
 }
+//iterative delete
+void  Delete_iter (TrieNode * root, const char* str) {
+
+    stack<TrieNode *> s;
+    TrieNode * tmp = root;
+    int len = strlen(str);
+    int depth = 0;
+    int index;
+
+    for (depth = 0; depth < len; depth++) {
+        index = INDEX(str[depth]);        
+        if (tmp->child[index]) {
+            s.push(root);
+        } else {
+            printf("no match");
+            return;
+        }
+        tmp = tmp->child[index];
+    }
+    
+    if (tmp->is_end == false) { 
+        printf("not match\n");
+        return;
+    }
+    tmp->is_end = false;
+
+    while(!s.empty()) {
+        tmp = s.top();
+        s.pop();
+        if (isEmpty(tmp) && tmp->is_end == false) {
+            free(root);
+            tmp = NULL;
+        }
+    }
+    return;
+}
+
 
 
 
