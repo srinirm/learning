@@ -33,6 +33,8 @@ void inOrder(struct Node *root)
 } 
 
 Preorder:
+*****************************************************
+
 
 void iterativePreorder(node* root) 
 { 
@@ -64,6 +66,7 @@ void iterativePreorder(node* root)
 } 
 
 Postorder using 2 stacks:
+************************************************************************************
 // An iterative function to do post order 
 // traversal of a given binary tree 
 void postOrderIterative(Node* root) 
@@ -103,6 +106,7 @@ void postOrderIterative(Node* root)
 
 
 postordet using single stack
+******************************************************************
 
 void postOrder(Node * root) {
   
