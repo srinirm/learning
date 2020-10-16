@@ -51,7 +51,7 @@ void insert (TrieNode *root, const char *str) {
             tmp->child[index] = getNode();
 
         }   
-        tmp->count += 1; 
+        tmp->child[index]->count += 1; 
         // mark last node as leaf 
         tmp = tmp->child[index];
     }
